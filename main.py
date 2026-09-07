@@ -5,29 +5,29 @@ conn = mysql.connector.connect(
     database = "employee_db",
     user="root",
     password="password",
-    port = "3306"
+    port = 3306
     
 )
 
 cursor = conn.cursor()
 
 def add_emp():
-    ID = int(input("Enter The ID: "))
-    Name = input("Enter The Name: ")
-    Age = int(input("Enter The Age: "))
-    Gender = input("Enter The Gender: ")
-    Department = input("Enter The Department: ")
-    Designation = input("Enter The Designation: ")
-    Salary = float(input("Enter The Salary: "))
-    Email = input("Enthe The Email: ")
-    Phone = input("Enter The Phone Number: ")
+    employee_id = int(input("Enter The ID: "))
+    name = input("Enter The Name: ")
+    age = int(input("Enter The Age: "))
+    gender = input("Enter The Gender: ")
+    department = input("Enter The Department: ")
+    designation = input("Enter The Designation: ")
+    salary = float(input("Enter The Salary: "))
+    email = input("Enthe The Email: ")
+    phone = input("Enter The Phone Number: ")
 
 
     query = """INSERT INTO employees (employee_id,name,age,gender,department,designation,salary,email,phone)
      VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)"""
 
     cursor.execute(
-        query,(ID,Name,Age,Gender,Department,Designation,Salary,Email,Phone)
+        query,(employee_id,name,age,gender,department,designation,salary,email,phone)
     )
 
     conn.commit()
@@ -36,7 +36,7 @@ def add_emp():
 # add_emp()
 
 def search_emp():
-    ID = int(input("Enter The ID: "))
+    employee_id = int(input("Enter The ID: "))
 
     query = """ SELECT * FROM employees
             WHERE employee_id = %s """
@@ -92,7 +92,7 @@ def view_emp():
 
 
 def update_emp():
-    ID = int(input("Enter The ID: "))
+    employee_id = int(input("Enter The ID: "))
 
     query = """ SELECT * FROM employees
             WHERE employee_id = %s """
@@ -191,7 +191,7 @@ while True:
     print("5. Delete Employee")
     print("6. Exit")
     print("===============================================")
-    
+
     choice = int(input("Enter The Choice: "))
 
     if choice == 1:
@@ -206,10 +206,10 @@ while True:
     elif choice == 4:
         update_emp()
 
-    elif choise == 5:
+    elif choice == 5:
         delete_emp()
 
-    elif choise == 6:
+    elif choice == 6:
         print("Thank You....")
         break
     
