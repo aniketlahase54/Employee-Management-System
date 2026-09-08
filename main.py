@@ -188,44 +188,44 @@ def delete_emp():
         print("Database Error:", e)
 
 # delete_emp()        
+def menu():
+    while True:
+        print("=========================EMPLOYEE MANAGEMENT SYSTEM======================")
+        print("1. Add Employee")
+        print("2. Search Employee")
+        print("3. View All Employee")
+        print("4. Update Employee")
+        print("5. Delete Employee")
+        print("6. Exit")
+        print("===============================================")
 
-while True:
-    print("=========================EMPLOYEE MANAGEMENT SYSTEM======================")
-    print("1. Add Employee")
-    print("2. Search Employee")
-    print("3. View All Employee")
-    print("4. Update Employee")
-    print("5. Delete Employee")
-    print("6. Exit")
-    print("===============================================")
+        try:
+            choice = int(input("Enter The Choice: "))
 
-    try:
-        choice = int(input("Enter The Choice: "))
+            if choice == 1:
+                add_emp()
 
-        if choice == 1:
-            add_emp()
+            elif choice == 2:
+                search_emp()
 
-        elif choice == 2:
-            search_emp()
+            elif choice == 3: 
+                view_emp()
 
-        elif choice == 3: 
-            view_emp()
+            elif choice == 4:
+                update_emp()
 
-        elif choice == 4:
-            update_emp()
+            elif choice == 5:
+                delete_emp()
 
-        elif choice == 5:
-            delete_emp()
+            elif choice == 6:
+                print("Thank You....")
+                break
+            
+            else: 
+                print("Invalid Choice")
 
-        elif choice == 6:
-            print("Thank You....")
-            break
-        
-        else: 
-            print("Invalid Choice")
-
-    except ValueError:
-        print("Please enter a valid choice.")
+        except ValueError:
+            print("Please enter a valid choice.")
 
 
 
